@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/start")
 public class CrawlerStartResource {
+
+    @RequestMapping("/test")
     public String test(){
         return "Hello World";
     }
