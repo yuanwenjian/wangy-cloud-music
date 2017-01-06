@@ -1,5 +1,8 @@
 package com.yuanwj.config;
 
+import com.yuanwj.queue.RequestQueue;
+import com.yuanwj.queue.RequestQueueImpl;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -7,4 +10,12 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class WebConfiguration {
+
+    @Bean
+    public RequestQueue requestQueue(){
+        return new RequestQueueImpl();
+    }
+
+
+
 }
