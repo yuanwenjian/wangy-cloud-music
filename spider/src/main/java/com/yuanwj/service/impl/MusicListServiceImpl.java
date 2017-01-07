@@ -1,6 +1,6 @@
 package com.yuanwj.service.impl;
 
-import com.yuanwj.config.SpliderConfiguration;
+import com.yuanwj.config.CloudMusicConfiguration;
 import com.yuanwj.model.MusicList;
 import com.yuanwj.repository.MusicListRepository;
 import com.yuanwj.service.MusicListService;
@@ -23,12 +23,12 @@ public class MusicListServiceImpl implements MusicListService{
     private MusicListRepository musicListRepository;
 
     @Inject
-    private SpliderConfiguration configuration;
+    private CloudMusicConfiguration configuration;
     @Override
     public List<MusicList> findAll() {
-        LOG.debug("查询音乐列表");
         List<MusicList> lists=musicListRepository.findAll();
         String path=configuration.getFilePath();
+        LOG.debug("当前路径为{}",path);
         return null;
     }
 }

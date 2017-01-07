@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * Created by bmk on 17-1-5.
  */
 @ConfigurationProperties(prefix = "cloudMusic")
-public class SpliderConfiguration {
+public class CloudMusicConfiguration {
 
     private  String filePath;
 
