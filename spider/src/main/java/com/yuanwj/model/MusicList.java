@@ -24,6 +24,9 @@ public class MusicList {
     @Column(name = "user_name")
     private String userName;
 
+    @Column(name = "music_list_id")
+    private String musicListId;
+
 
     public Long getId() {
         return id;
@@ -63,5 +66,13 @@ public class MusicList {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getMusicListId() {
+        return musicListId;
+    }
+
+    public void setMusicListId(String musicListId) {
+        this.musicListId = musicListId;
     }
 }

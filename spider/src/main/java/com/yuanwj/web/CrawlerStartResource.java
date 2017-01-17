@@ -48,4 +48,13 @@ public class CrawlerStartResource {
         return "success";
     }
 
+    @RequestMapping("/doutu")
+    public String douTu(){
+        Request request=new Request();
+        request.setUrl("http://www.doutula.com");
+        request.setType(Request.TYPE.DOUTU);
+        splider.addRequest(request);
+        return "success";
+    }
+
 }

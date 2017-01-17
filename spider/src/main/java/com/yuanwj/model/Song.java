@@ -26,6 +26,9 @@ public class Song {
     @Column(name = "mv_url")
     private String mvUrl;
 
+    @Column(name = "music_list_id")
+    private String musicListId;
+
 //    @Column(name = "img_path")
 //    private String imgPath;
 
@@ -92,4 +95,13 @@ public class Song {
 //    public void setImgPath(String imgPath) {
 //        this.imgPath = imgPath;
 //    }
+
+
+    public String getMusicListId() {
+        return musicListId;
+    }
+
+    public void setMusicListId(String musicListId) {
+        this.musicListId = musicListId;
+    }
 }

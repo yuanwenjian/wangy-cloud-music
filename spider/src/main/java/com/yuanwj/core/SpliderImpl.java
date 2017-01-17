@@ -59,7 +59,7 @@ public class SpliderImpl implements Splider {
         }
         LOG.debug("开始解析{}类型html",request.getType());
         Document document=downloader.download(request);
-        Result result=getResoleve(request).resolve(document);
+        Result result=getResoleve(request).resolve(document,request);
         for (ItemPipeLine itemPipeLine:itemPipeLineList){
             itemPipeLine.save(result);
         }

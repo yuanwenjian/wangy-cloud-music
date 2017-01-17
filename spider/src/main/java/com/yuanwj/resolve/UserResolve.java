@@ -1,5 +1,6 @@
 package com.yuanwj.resolve;
 
+import com.yuanwj.core.Request;
 import com.yuanwj.core.Result;
 import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
@@ -11,7 +12,7 @@ import org.slf4j.LoggerFactory;
 public class UserResolve implements ResolveResponse {
     private Logger LOG= LoggerFactory.getLogger(UserResolve.class);
     @Override
-    public Result resolve(Document document) {
+    public Result resolve(Document document,Request request) {
         LOG.debug("解析用户html");
         return null;
     }

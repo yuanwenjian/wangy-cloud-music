@@ -18,7 +18,7 @@ public class LeapResolve implements ResolveResponse {
 
     public static final Logger LOG= LoggerFactory.getLogger(LeapResolve.class);
     @Override
-    public Result resolve(Document document) {
+    public Result resolve(Document document,Request request) {
         LOG.debug("开始解析leap html,生成song链接");
         Result result=new Result();
         try {
@@ -28,10 +28,11 @@ public class LeapResolve implements ResolveResponse {
             for (Element liElement:ulElement){
                 Element aElement=liElement.getElementsByTag("a").get(0);
                 String href=aElement.attr("href");
-                Request request=new Request();
-                request.setUrl(Request.BASEURL+href);
-                request.setType(Request.TYPE.SONG);
-                requests.add(request);
+                Request requestTarget=new Request();
+                requestTarget.setUrl(Request.BASEURL+href);
+                requestTarget.setType(Request.TYPE.SONG);
+                requestTarget.setParam(request.getParam());
+                requests.add(requestTarget);
             }
             result.setRequests(requests);
 

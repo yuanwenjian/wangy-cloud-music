@@ -19,7 +19,7 @@ public class MusicListResolve implements ResolveResponse {
     public static final Logger LOG = LoggerFactory.getLogger(MusicListResolve.class);
 
     @Override
-    public Result resolve(Document document) {
+    public Result resolve(Document document,Request request) {
         LOG.debug("解析歌单html");
         Elements elements = document.select("ul#m-pl-container");//歌单列表
         Elements elementsLi = elements.select("li");
@@ -42,15 +42,18 @@ public class MusicListResolve implements ResolveResponse {
             musicList.setUrl(Request.BASEURL + href);
             musicList.setTitle(title);
             musicList.setUserName(userName);
+            String musicId=href.split("\\?")[1].split("=")[1];
+            musicList.setMusicListId(musicId);
             musicLists.add(musicList);
 
-            Request request=new Request();
-            request.setUrl(Request.BASEURL+href);
-            request.setType(Request.TYPE.LEAP);
+            Request requestTarget=new Request();
+            requestTarget.setUrl(Request.BASEURL+href);
+            requestTarget.setType(Request.TYPE.LEAP);
+            requestTarget.setParam(musicId);
             Request userRequest=new Request();
             userRequest.setType(Request.TYPE.USER);
             userRequest.setUrl(Request.BASEURL+userHref);
-            requests.add(request);
+            requests.add(requestTarget);
             requests.add(userRequest);
         }
         result.setEntity(musicLists);

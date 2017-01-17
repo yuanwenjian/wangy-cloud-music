@@ -10,6 +10,8 @@ public class Request implements Comparable<Request> {
 
     private String url;
 
+    private String param;
+
     public TYPE getType() {
         return type;
     }
@@ -31,8 +33,15 @@ public class Request implements Comparable<Request> {
         return this.getType().ordinal() - other.getType().ordinal();
     }
 
+    public String getParam() {
+        return param;
+    }
+
+    public void setParam(String param) {
+        this.param = param;
+    }
 
     public enum TYPE {
-        ROOT,MUSICLIST, SONG,LEAP, USER
+        ROOT,MUSICLIST, SONG,LEAP, USER,DOUTU
     }
 }

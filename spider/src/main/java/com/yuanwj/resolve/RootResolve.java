@@ -18,17 +18,17 @@ public class RootResolve implements ResolveResponse {
 
     public static final Logger LOG= LoggerFactory.getLogger(RootResolve.class);
     @Override
-    public Result resolve(Document document) {
+    public Result resolve(Document document,Request request) {
         LOG.debug("开始解析Root html");
         List<Request> requestList=new ArrayList<>();
         Result result=new Result();
         Elements elements=document.select("a.s-fc1");
         for (Element aElement:elements){
-            Request request=new Request();
+            Request requestTarget=new Request();
             String href=aElement.attr("href");
-            request.setUrl(Request.BASEURL+href);
-            request.setType(Request.TYPE.MUSICLIST);
-            requestList.add(request);
+            requestTarget.setUrl(Request.BASEURL+href);
+            requestTarget.setType(Request.TYPE.MUSICLIST);
+            requestList.add(requestTarget);
         }
         result.setRequests(requestList);
         return result;

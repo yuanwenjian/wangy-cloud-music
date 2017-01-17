@@ -25,6 +25,7 @@ public class DownloadImpl implements Downloader {
         CloseableHttpClient client = HttpClients.createDefault();
         LOG.debug("当前链接type为{}，url为{}",request.getType(),request.getUrl());
         HttpGet httpGet = new HttpGet(request.getUrl());
+        httpGet.setHeader("Cookie","CNZZDATA1256911977=405947132-1484049377-https%253A%252F%252Fwww.baidu.com%252F%7C1484049377; _ga=GA1.2.628230727.1484052749");
         try {
             CloseableHttpResponse response = client.execute(httpGet);
             HttpEntity entity = response.getEntity();

@@ -18,7 +18,7 @@ public class SongResolve implements ResolveResponse {
     public static final Logger LOG= LoggerFactory.getLogger(SongResolve.class);
 
     @Override
-    public Result resolve(Document document) {
+    public Result resolve(Document document,Request request) {
         LOG.debug("解析歌曲html");
         Result result=new Result();
         Element element=document.select(".cnt").get(0);
@@ -42,6 +42,7 @@ public class SongResolve implements ResolveResponse {
 
 
         Song song=new Song();
+        song.setMusicListId(request.getParam());
         song.setName(name);
         song.setMvUrl(Request.BASEURL + mvPath);
         song.setArtist(artist);
