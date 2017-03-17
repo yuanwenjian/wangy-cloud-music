@@ -12,6 +12,7 @@ import javax.servlet.ServletRegistration;
  * Created by yuanwj on 2017/1/18.
  */
 public class WebIntializer implements WebApplicationInitializer {
+
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext applicationContext=new AnnotationConfigWebApplicationContext();
@@ -19,6 +20,6 @@ public class WebIntializer implements WebApplicationInitializer {
         applicationContext.setServletContext(servletContext);
         ServletRegistration.Dynamic servlet=servletContext.addServlet("dispatcher",new DispatcherServlet());
         servlet.addMapping("/");
-        servlet.setLoadOnStartup(1);
+        servlet.setLoadOnStartup(2);
     }
 }
