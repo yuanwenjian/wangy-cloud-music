@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by yuanwj on 2017/1/4.
@@ -22,7 +23,7 @@ public class CrawlerStartResource {
     private Splider splider;
 
     @RequestMapping("/musicList")
-    public String musicList(){
+    public String musicList(HttpServletRequest httpServletRequest){
         Request request=new Request();
         request.setUrl(Request.BASEURL+"/discover/playlist");
         request.setType(Request.TYPE.ROOT);
